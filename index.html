@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BTMR CLOUD PRO</title>
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="https://img.icons8.com/fluency/180/00d4ff/cloud-checked.png">
+
+    <script>
+        // --- BAHAGIAN KONFIGURASI DATA ---
+        const APP_NAME = "BTMR CLOUD PRO";
+        const COUNTRIES = [
+            {g:"SEMUA", d:"1 Jun 2024", n:"Albania", c:"AL"},
+            {g:"SEMUA", d:"1 Jun 2024", n:"Australia", c:"AU"},
+            {g:"SEMUA", d:"1 Jun 2024", n:"China", c:"CN"},
+            {g:"SEMUA", d:"1 Jun 2024", n:"Singapore", c:"SG"},
+            {g:"ASEAN", d:"15 Feb 2025", n:"Indonesia", c:"ID"},
+            {g:"ASEAN", d:"15 Feb 2025", n:"Thailand", c:"TH"}
+            // Tambah data mengikut format ini
+        ];
+    </script>
+
+    <style>
+        :root { --navy: #001D3D; --blue: #00D4FF; --glass: rgba(255,255,255,0.08); }
+        body { font-family: -apple-system, sans-serif; background: #000814; color: white; margin: 0; padding-bottom: 100px; }
+        .header { position: sticky; top: 0; padding: 50px 15px 15px; background: rgba(0,8,20,0.7); backdrop-filter: blur(20px); border-bottom: 0.5px solid rgba(255,255,255,0.1); z-index: 100; text-align: center; }
+        .page { display: none; padding: 15px; }
+        .active { display: block; }
+        .card { background: var(--glass); border-radius: 20px; padding: 20px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 15px; }
+        input { width: 100%; padding: 15px; border-radius: 12px; border: none; background: rgba(255,255,255,0.1); color: white; box-sizing: border-box; }
+        .tab-bar { position: fixed; bottom: 0; width: 100%; height: 85px; background: rgba(0,8,20,0.9); display: flex; justify-content: space-around; padding-top: 10px; border-top: 0.5px solid rgba(255,255,255,0.1); }
+        .tab { color: gray; text-decoration: none; font-size: 10px; text-align: center; }
+        .tab.active-tab { color: var(--blue); }
+    </style>
+</head>
+<body>
+    <div class="header"><h1 id="title">BTMR CLOUD</h1></div>
+
+    <div id="p1" class="page active">
+        <div class="card"><h3>Jadual Tugas</h3><p>Mod kemaskini awan aktif.</p></div>
+    </div>
+
+    <div id="p2" class="page">
+        <input type="text" id="src" placeholder="Cari negara..." onkeyup="search()">
+        <div id="list" style="margin-top:20px"></div>
+    </div>
+
+    <nav class="tab-bar">
+        <a href="#" class="tab active-tab" onclick="nav(1,'JADUAL TUGAS',this)"><span>📅</span><br>Jadual</a>
+        <a href="#" class="tab" onclick="nav(2,'INFO NEGARA',this)"><span>🌍</span><br>Negara</a>
+    </nav>
+
+    <script>
+        function nav(n,t,el){
+            document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+            document.getElementById('p'+n).classList.add('active');
+            document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active-tab'));
+            el.classList.add('active-tab');
+            document.getElementById('title').innerText = t;
+            if(n===2) render(COUNTRIES);
+        }
+        function render(l){
+            document.getElementById('list').innerHTML = l.map(i=>`<div class="card">${i.n} (${i.c})</div>`).join('');
+        }
+        function search(){
+            let v = document.getElementById('src').value.toLowerCase();
+            render(COUNTRIES.filter(i=>i.n.toLowerCase().includes(v)));
+        }
+    </script>
+</body>
+</html>
