@@ -13,13 +13,42 @@
         // --- BAHAGIAN KONFIGURASI DATA ---
         const APP_NAME = "BTMR CLOUD PRO";
         const COUNTRIES = [
-            {g:"SEMUA", d:"1 Jun 2024", n:"Albania", c:"AL"},
-            {g:"SEMUA", d:"1 Jun 2024", n:"Australia", c:"AU"},
-            {g:"SEMUA", d:"1 Jun 2024", n:"China", c:"CN"},
-            {g:"SEMUA", d:"1 Jun 2024", n:"Singapore", c:"SG"},
-            {g:"ASEAN", d:"15 Feb 2025", n:"Indonesia", c:"ID"},
-            {g:"ASEAN", d:"15 Feb 2025", n:"Thailand", c:"TH"}
-            // Tambah data mengikut format ini
+            {g:"SEMUA", d:"1 Jun 2024", n:"Albania", c:"AL"}, {g:"SEMUA", d:"1 Jun 2024", n:"Andorra", c:"AD"},
+            {g:"SEMUA", d:"1 Jun 2024", n:"Armenia", c:"AM"}, {g:"SEMUA", d:"1 Jun 2024", n:"Australia", c:"AU"},
+            {g:"SEMUA", d:"1 Jun 2024", n:"Austria", c:"AT"}, {g:"SEMUA", d:"1 Jun 2024", n:"Azerbaijan", c:"AZ"},
+            {g:"SEMUA", d:"1 Jun 2024", n:"Bahrain", c:"BH"}, {g:"SEMUA", d:"1 Jun 2024", n:"Belarus", c:"BY"},
+            {g:"SEMUA", d:"1 Jun 2024", n:"Belgium", c:"BE"}, {g:"SEMUA", d:"1 Jun 2024", n:"Bosnia and Herzegovina", c:"BA"},
+            {g:"SEMUA", d:"1 Jun 2024", n:"Brunei", c:"BN"}, {g:"SEMUA", d:"1 Jun 2024", n:"Bulgaria", c:"BG"},
+            {g:"SEMUA", d:"1 Jun 2024", n:"Canada", c:"CA"}, {g:"SEMUA", d:"1 Jun 2024", n:"China", c:"CN"},
+            {g:"SEMUA", d:"1 Jun 2024", n:"Croatia", c:"HR"}, {g:"SEMUA", d:"1 Jun 2024", n:"Cyprus", c:"CY"},
+            {g:"SEMUA", d:"1 Jun 2024", n:"Czech Republic", c:"CZ"}, {g:"SEMUA", d:"1 Jun 2024", n:"Denmark", c:"DK"},
+            {g:"SEMUA", d:"1 Jun 2024", n:"Estonia", c:"EE"}, {g:"SEMUA", d:"1 Jun 2024", n:"Finland", c:"FI"},
+            {g:"SEMUA", d:"1 Jun 2024", n:"France", c:"FR"}, {g:"SEMUA", d:"1 Jun 2024", n:"Georgia", c:"GE"},
+            {g:"SEMUA", d:"1 Jun 2024", n:"Germany", c:"DE"}, {g:"SEMUA", d:"1 Jun 2024", n:"Greece", c:"GR"},
+            {g:"SEMUA", d:"1 Jun 2024", n:"Hong Kong SAR", c:"HK"}, {g:"SEMUA", d:"1 Jun 2024", n:"Hungary", c:"HU"},
+            {g:"SEMUA", d:"1 Jun 2024", n:"Iceland", c:"IS"}, {g:"SEMUA", d:"1 Jun 2024", n:"Ireland", c:"IE"},
+            {g:"SEMUA", d:"1 Jun 2024", n:"Italy", c:"IT"}, {g:"SEMUA", d:"1 Jun 2024", n:"Japan", c:"JP"},
+            {g:"SEMUA", d:"1 Jun 2024", n:"Jordan", c:"JO"}, {g:"SEMUA", d:"1 Jun 2024", n:"Kuwait", c:"KW"},
+            {g:"SEMUA", d:"1 Jun 2024", n:"Latvia", c:"LV"}, {g:"SEMUA", d:"1 Jun 2024", n:"Liechtenstein", c:"LI"},
+            {g:"SEMUA", d:"1 Jun 2024", n:"Lithuania", c:"LT"}, {g:"SEMUA", d:"1 Jun 2024", n:"Luxembourg", c:"LU"},
+            {g:"SEMUA", d:"1 Jun 2024", n:"Malta", c:"MT"}, {g:"SEMUA", d:"1 Jun 2024", n:"Moldova", c:"MD"},
+            {g:"SEMUA", d:"1 Jun 2024", n:"Netherlands", c:"NL"}, {g:"SEMUA", d:"1 Jun 2024", n:"New Zealand", c:"NZ"},
+            {g:"SEMUA", d:"1 Jun 2024", n:"North Macedonia", c:"MK"}, {g:"SEMUA", d:"1 Jun 2024", n:"Norway", c:"NO"},
+            {g:"SEMUA", d:"1 Jun 2024", n:"Oman", c:"OM"}, {g:"SEMUA", d:"1 Jun 2024", n:"Poland", c:"PL"},
+            {g:"SEMUA", d:"1 Jun 2024", n:"Portugal", c:"PT"}, {g:"SEMUA", d:"1 Jun 2024", n:"Qatar", c:"QA"},
+            {g:"SEMUA", d:"1 Jun 2024", n:"Romania", c:"RO"}, {g:"SEMUA", d:"1 Jun 2024", n:"Russia", c:"RU"},
+            {g:"SEMUA", d:"1 Jun 2024", n:"San Marino", c:"SM"}, {g:"SEMUA", d:"1 Jun 2024", n:"Saudi Arabia", c:"SA"},
+            {g:"SEMUA", d:"1 Jun 2024", n:"Singapore", c:"SG"}, {g:"SEMUA", d:"1 Jun 2024", n:"Slovakia", c:"SK"},
+            {g:"SEMUA", d:"1 Jun 2024", n:"Slovenia", c:"SI"}, {g:"SEMUA", d:"1 Jun 2024", n:"South Korea", c:"KR"},
+            {g:"SEMUA", d:"1 Jun 2024", n:"Spain", c:"ES"}, {g:"SEMUA", d:"1 Jun 2024", n:"Sweden", c:"SE"},
+            {g:"SEMUA", d:"1 Jun 2024", n:"Switzerland", c:"CH"}, {g:"SEMUA", d:"1 Jun 2024", n:"Taiwan", c:"TW"},
+            {g:"SEMUA", d:"1 Jun 2024", n:"Turkey", c:"TR"}, {g:"SEMUA", d:"1 Jun 2024", n:"Ukraine", c:"UA"},
+            {g:"SEMUA", d:"1 Jun 2024", n:"United Arab Emirates", c:"AE"}, {g:"SEMUA", d:"1 Jun 2024", n:"United Kingdom", c:"GB"},
+            {g:"SEMUA", d:"1 Jun 2024", n:"United States", c:"US"},
+            {g:"ASEAN", d:"15 Feb 2025", n:"Cambodia", c:"KH"}, {g:"ASEAN", d:"15 Feb 2025", n:"Indonesia", c:"ID"},
+            {g:"ASEAN", d:"15 Feb 2025", n:"Laos", c:"LA"}, {g:"ASEAN", d:"15 Feb 2025", n:"Myanmar", c:"MM"},
+            {g:"ASEAN", d:"15 Feb 2025", n:"Philippines", c:"PH"}, {g:"ASEAN", d:"15 Feb 2025", n:"Thailand", c:"TH"},
+            {g:"ASEAN", d:"15 Feb 2025", n:"Vietnam", c:"VN"}, {g:"ASEAN", d:"15 Feb 2025", n:"Timor-Leste", c:"TL"}
         ];
     </script>
 
