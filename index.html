@@ -82,22 +82,53 @@
         <a href="#" class="tab" onclick="nav(2,'INFO NEGARA',this)"><span>🌍</span><br>Negara</a>
     </nav>
 
-    <script>
-        function nav(n,t,el){
-            document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-            document.getElementById('p'+n).classList.add('active');
-            document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active-tab'));
-            el.classList.add('active-tab');
-            document.getElementById('title').innerText = t;
-            if(n===2) render(COUNTRIES);
+ <script>
+    // 1. Fungsi Navigasi Tab
+    function nav(n, t, el) {
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.getElementById('p' + n).classList.add('active');
+        document.querySelectorAll('.tab').forEach(b => b.classList.remove('active-tab'));
+        el.classList.add('active-tab');
+        document.getElementById('title').innerText = t;
+        if (n === 2) render(COUNTRIES);
+    }
+
+    // 2. Fungsi Tukar Kod ke Bendera (INI YANG PENTING)
+    function getFlag(c) {
+        return c.toUpperCase().replace(/./g, char => 
+            String.fromCodePoint(char.charCodeAt(0) + 127397)
+        );
+    }
+
+    // 3. Fungsi Papar Senarai Negara
+    function render(l) {
+        const container = document.getElementById('list');
+        if (l.length === 0) {
+            container.innerHTML = '<p style="text-align:center; opacity:0.5;">Tiada padanan.</p>';
+            return;
         }
-        function render(l){
-            document.getElementById('list').innerHTML = l.map(i=>`<div class="card">${i.n} (${i.c})</div>`).join('');
-        }
-        function search(){
-            let v = document.getElementById('src').value.toLowerCase();
-            render(COUNTRIES.filter(i=>i.n.toLowerCase().includes(v)));
-        }
-    </script>
-</body>
-</html>
+        // Susun A-Z dan papar
+        container.innerHTML = l.sort((a, b) => a.n.localeCompare(b.n)).map(i => `
+            <div class="card" style="display:flex; align-items:center; padding:15px; margin-bottom:10px;">
+                <div style="font-size:30px; margin-right:15px;">${getFlag(i.c)}</div>
+                <div style="flex:1">
+                    <div style="font-weight:bold; font-size:16px;">${i.n}</div>
+                    <div style="font-size:11px; color:#00D4FF;">${i.c} • Mula: ${i.d}</div>
+                </div>
+                <div style="font-size:9px; background:rgba(255,255,255,0.1); padding:4px 8px; border-radius:8px;">${i.g}</div>
+            </div>
+        `).join('');
+    }
+
+    // 4. Fungsi Carian
+    function search() {
+        let v = document.getElementById('src').value.toLowerCase();
+        const hasil = COUNTRIES.filter(i => 
+            i.n.toLowerCase().includes(v) || i.c.toLowerCase().includes(v)
+        );
+        render(hasil);
+    }
+
+    // Papar data secara automatik apabila mula
+    window.onload = () => { render(COUNTRIES); };
+</script>
