@@ -2,234 +2,208 @@
 <html lang="ms">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>BTMR CLOUD PRO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTMR CLOUD MANAGER 2026</title>
     
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="apple-touch-icon" href="https://img.icons8.com/fluency/180/00d4ff/cloud-checked.png">
-
-    <script>
-        // --- BAHAGIAN KONFIGURASI DATA ---
-        const APP_NAME = "BTMR CLOUD PRO";
-        const COUNTRIES = [
-            {g:"SEMUA", d:"1 Jun 2024", n:"Albania", c:"AL"}, {g:"SEMUA", d:"1 Jun 2024", n:"Andorra", c:"AD"},
-            {g:"SEMUA", d:"1 Jun 2024", n:"Armenia", c:"AM"}, {g:"SEMUA", d:"1 Jun 2024", n:"Australia", c:"AU"},
-            {g:"SEMUA", d:"1 Jun 2024", n:"Austria", c:"AT"}, {g:"SEMUA", d:"1 Jun 2024", n:"Azerbaijan", c:"AZ"},
-            {g:"SEMUA", d:"1 Jun 2024", n:"Bahrain", c:"BH"}, {g:"SEMUA", d:"1 Jun 2024", n:"Belarus", c:"BY"},
-            {g:"SEMUA", d:"1 Jun 2024", n:"Belgium", c:"BE"}, {g:"SEMUA", d:"1 Jun 2024", n:"Bosnia and Herzegovina", c:"BA"},
-            {g:"SEMUA", d:"1 Jun 2024", n:"Brunei", c:"BN"}, {g:"SEMUA", d:"1 Jun 2024", n:"Bulgaria", c:"BG"},
-            {g:"SEMUA", d:"1 Jun 2024", n:"Canada", c:"CA"}, {g:"SEMUA", d:"1 Jun 2024", n:"China", c:"CN"},
-            {g:"SEMUA", d:"1 Jun 2024", n:"Croatia", c:"HR"}, {g:"SEMUA", d:"1 Jun 2024", n:"Cyprus", c:"CY"},
-            {g:"SEMUA", d:"1 Jun 2024", n:"Czech Republic", c:"CZ"}, {g:"SEMUA", d:"1 Jun 2024", n:"Denmark", c:"DK"},
-            {g:"SEMUA", d:"1 Jun 2024", n:"Estonia", c:"EE"}, {g:"SEMUA", d:"1 Jun 2024", n:"Finland", c:"FI"},
-            {g:"SEMUA", d:"1 Jun 2024", n:"France", c:"FR"}, {g:"SEMUA", d:"1 Jun 2024", n:"Georgia", c:"GE"},
-            {g:"SEMUA", d:"1 Jun 2024", n:"Germany", c:"DE"}, {g:"SEMUA", d:"1 Jun 2024", n:"Greece", c:"GR"},
-            {g:"SEMUA", d:"1 Jun 2024", n:"Hong Kong SAR", c:"HK"}, {g:"SEMUA", d:"1 Jun 2024", n:"Hungary", c:"HU"},
-            {g:"SEMUA", d:"1 Jun 2024", n:"Iceland", c:"IS"}, {g:"SEMUA", d:"1 Jun 2024", n:"Ireland", c:"IE"},
-            {g:"SEMUA", d:"1 Jun 2024", n:"Italy", c:"IT"}, {g:"SEMUA", d:"1 Jun 2024", n:"Japan", c:"JP"},
-            {g:"SEMUA", d:"1 Jun 2024", n:"Jordan", c:"JO"}, {g:"SEMUA", d:"1 Jun 2024", n:"Kuwait", c:"KW"},
-            {g:"SEMUA", d:"1 Jun 2024", n:"Latvia", c:"LV"}, {g:"SEMUA", d:"1 Jun 2024", n:"Liechtenstein", c:"LI"},
-            {g:"SEMUA", d:"1 Jun 2024", n:"Lithuania", c:"LT"}, {g:"SEMUA", d:"1 Jun 2024", n:"Luxembourg", c:"LU"},
-            {g:"SEMUA", d:"1 Jun 2024", n:"Malta", c:"MT"}, {g:"SEMUA", d:"1 Jun 2024", n:"Moldova", c:"MD"},
-            {g:"SEMUA", d:"1 Jun 2024", n:"Netherlands", c:"NL"}, {g:"SEMUA", d:"1 Jun 2024", n:"New Zealand", c:"NZ"},
-            {g:"SEMUA", d:"1 Jun 2024", n:"North Macedonia", c:"MK"}, {g:"SEMUA", d:"1 Jun 2024", n:"Norway", c:"NO"},
-            {g:"SEMUA", d:"1 Jun 2024", n:"Oman", c:"OM"}, {g:"SEMUA", d:"1 Jun 2024", n:"Poland", c:"PL"},
-            {g:"SEMUA", d:"1 Jun 2024", n:"Portugal", c:"PT"}, {g:"SEMUA", d:"1 Jun 2024", n:"Qatar", c:"QA"},
-            {g:"SEMUA", d:"1 Jun 2024", n:"Romania", c:"RO"}, {g:"SEMUA", d:"1 Jun 2024", n:"Russia", c:"RU"},
-            {g:"SEMUA", d:"1 Jun 2024", n:"San Marino", c:"SM"}, {g:"SEMUA", d:"1 Jun 2024", n:"Saudi Arabia", c:"SA"},
-            {g:"SEMUA", d:"1 Jun 2024", n:"Singapore", c:"SG"}, {g:"SEMUA", d:"1 Jun 2024", n:"Slovakia", c:"SK"},
-            {g:"SEMUA", d:"1 Jun 2024", n:"Slovenia", c:"SI"}, {g:"SEMUA", d:"1 Jun 2024", n:"South Korea", c:"KR"},
-            {g:"SEMUA", d:"1 Jun 2024", n:"Spain", c:"ES"}, {g:"SEMUA", d:"1 Jun 2024", n:"Sweden", c:"SE"},
-            {g:"SEMUA", d:"1 Jun 2024", n:"Switzerland", c:"CH"}, {g:"SEMUA", d:"1 Jun 2024", n:"Taiwan", c:"TW"},
-            {g:"SEMUA", d:"1 Jun 2024", n:"Turkey", c:"TR"}, {g:"SEMUA", d:"1 Jun 2024", n:"Ukraine", c:"UA"},
-            {g:"SEMUA", d:"1 Jun 2024", n:"United Arab Emirates", c:"AE"}, {g:"SEMUA", d:"1 Jun 2024", n:"United Kingdom", c:"GB"},
-            {g:"SEMUA", d:"1 Jun 2024", n:"United States", c:"US"},
-            {g:"ASEAN", d:"15 Feb 2025", n:"Cambodia", c:"KH"}, {g:"ASEAN", d:"15 Feb 2025", n:"Indonesia", c:"ID"},
-            {g:"ASEAN", d:"15 Feb 2025", n:"Laos", c:"LA"}, {g:"ASEAN", d:"15 Feb 2025", n:"Myanmar", c:"MM"},
-            {g:"ASEAN", d:"15 Feb 2025", n:"Philippines", c:"PH"}, {g:"ASEAN", d:"15 Feb 2025", n:"Thailand", c:"TH"},
-            {g:"ASEAN", d:"15 Feb 2025", n:"Vietnam", c:"VN"}, {g:"ASEAN", d:"15 Feb 2025", n:"Timor-Leste", c:"TL"}
-        ];
-    </script>
+    <script src="https://www.gstatic.com"></script>
+    <script src="https://www.gstatic.com"></script>
 
     <style>
-        :root { --navy: #001D3D; --blue: #00D4FF; --glass: rgba(255,255,255,0.08); }
-        body { font-family: -apple-system, sans-serif; background: #000814; color: white; margin: 0; padding-bottom: 100px; }
-        .header { position: sticky; top: 0; padding: 50px 15px 15px; background: rgba(0,8,20,0.7); backdrop-filter: blur(20px); border-bottom: 0.5px solid rgba(255,255,255,0.1); z-index: 100; text-align: center; }
-        .page { display: none; padding: 15px; }
-        .active { display: block; }
-        .card { background: var(--glass); border-radius: 20px; padding: 20px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 15px; }
-        input { width: 100%; padding: 15px; border-radius: 12px; border: none; background: rgba(255,255,255,0.1); color: white; box-sizing: border-box; }
-        .tab-bar { position: fixed; bottom: 0; width: 100%; height: 85px; background: rgba(0,8,20,0.9); display: flex; justify-content: space-around; padding-top: 10px; border-top: 0.5px solid rgba(255,255,255,0.1); }
-        .tab { color: gray; text-decoration: none; font-size: 10px; text-align: center; }
-        .tab.active-tab { color: var(--blue); }
+        :root { --primary: #5C6AC4; --ot-color: #0984e3; --danger: #d63031; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f0f2f5; }
+        .container { padding: 20px; max-width: 1400px; margin: auto; }
+        .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        input, select, textarea { width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; }
+        button { padding: 10px 20px; cursor: pointer; border: none; border-radius: 6px; font-weight: bold; }
+        .btn-blue { background: var(--primary); color: white; }
+        .btn-green { background: #28a745; color: white; }
+        .btn-red { background: var(--danger); color: white; }
+        
+        /* Table */
+        .table-container { overflow-x: auto; background: white; border-radius: 8px; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #eee; padding: 12px; text-align: center; }
+        th { background: #f8f9fa; }
+        .cell-shift { cursor: pointer; color: white; font-weight: bold; border-radius: 4px; }
+        
+        /* Staff List */
+        .staff-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin-top: 15px; }
+        .staff-card { padding: 10px; border: 1px solid #ddd; border-radius: 8px; background: #fff; display: flex; justify-content: space-between; align-items: center; }
+
+        .modal { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+                  background: white; padding: 25px; border-radius: 12px; z-index: 1001; width: 90%; max-width: 500px; box-shadow: 0 10px 40px rgba(0,0,0,0.4); }
+        #overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; }
+        @media print { .no-print { display: none; } }
     </style>
 </head>
 <body>
-    <div class="header"><h1 id="title">BTMR CLOUD</h1></div>
 
-   <div id="p1" class="page active">
-        <div id="userProfile" class="card" style="display:none; border-left: 5px solid #00D4FF;">
-            <p style="margin:0; font-size:12px; opacity:0.6;">Pegawai Bertugas:</p>
-            <h2 id="displayNama" style="margin:5px 0 0 0; font-size:20px;">-</h2>
-            <p id="displayID" style="margin:0; font-size:12px; color:#00D4FF;">ID: -</p>
-            <button onclick="logout()" style="margin-top:15px; background:none; border:1px solid red; color:red; padding:5px 10px; border-radius:8px; font-size:10px;">LOG KELUAR</button>
+<div class="container">
+    <!-- LOGIN -->
+    <div id="loginSection" class="card" style="width: 320px; margin: 100px auto; text-align: center;">
+        <h2 style="color:var(--primary)">BTMR ADMIN 2026</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button class="btn-blue" onclick="checkLogin()" style="width:100%">LOG MASUK</button>
+        <p id="loginError" style="color:red; font-size:12px;"></p>
+    </div>
+
+    <!-- MAIN APP -->
+    <div id="mainApp" style="display:none;">
+        <div style="display:flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h1>Jadual Pasukan BTMR 2026</h1>
+            <div id="clock" style="font-weight: bold; color: var(--primary);"></div>
         </div>
 
-        <div id="authForm" class="card">
-            <h3 id="authTitle">Log Masuk Pegawai</h3>
-            <p id="authDesc" style="font-size:12px; opacity:0.7;">Sila masukkan ID untuk akses jadual.</p>
-            
-            <div style="margin-bottom:15px;">
-                <label style="font-size:11px; color:#00D4FF;">ID PEGAWAI</label>
-                <input type="text" id="userID" placeholder="Contoh: BTMR123">
+        <!-- DAFTAR PEGAWAI (PAGE 2 CONTENT) -->
+        <div class="card no-print">
+            <h3>👥 Pendaftaran Pegawai</h3>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <input type="text" id="s_name" placeholder="Nama Penuh" style="flex:2">
+                <select id="s_team" style="flex:1">
+                    <option value="PASUKAN A">Pasukan A</option>
+                    <option value="PASUKAN B">Pasukan B</option>
+                    <option value="PASUKAN C">Pasukan C</option>
+                    <option value="PASUKAN D">Pasukan D</option>
+                </select>
+                <button class="btn-green" onclick="addStaff()">+ DAFTAR</button>
             </div>
-            
-            <div id="nameField" style="margin-bottom:15px; display:none;">
-                <label style="font-size:11px; color:#00D4FF;">NAMA PENUH</label>
-                <input type="text" id="userName" placeholder="Nama anda">
-            </div>
+            <div id="staffDisplay" class="staff-grid"></div>
+        </div>
 
-            <button id="mainBtn" onclick="handleAuth()" style="width:100%; padding:15px; border-radius:12px; border:none; background:#00D4FF; color:#001D3D; font-weight:bold; font-size:16px;">LOG MASUK</button>
-            
-            <p style="text-align:center; font-size:12px; margin-top:15px;">
-                <span id="toggleText">Tiada ID pegawai?</span> 
-                <a href="javascript:void(0)" id="toggleLink" onclick="toggleAuthMode()" style="color:#00D4FF; text-decoration:none; font-weight:bold;">Daftar Sekarang</a>
-            </p>
+        <!-- JADUAL TUGASAN (PAGE 1 CONTENT) -->
+        <div class="card" style="padding:0;">
+            <div style="padding: 15px;" class="no-print">
+                <label>Pilih Bulan:</label>
+                <select id="monthSelect" onchange="renderTable()" style="width: 200px;"></select>
+            </div>
+            <div class="table-container" id="calendarContainer"></div>
         </div>
     </div>
-        <div class="card"><h3>Jadual Tugas</h3><p>Mod kemaskini awan aktif.</p></div>
-    </div>
+</div>
 
-    <div id="p2" class="page">
-        <input type="text" id="src" placeholder="Cari negara..." onkeyup="search()">
-        <div id="list" style="margin-top:20px"></div>
-    </div>
+<!-- MODAL UPDATE -->
+<div id="overlay" onclick="closeModal()"></div>
+<div id="statusModal" class="modal">
+    <h3 id="modalTitle">Kemaskini</h3>
+    <select id="statusType">
+        <option value="NORMAL">Normal</option>
+        <option value="CS">CS (Cuti Sakit)</option>
+        <option value="OT">OT (Overtime)</option>
+    </select>
+    <textarea id="globalNote" placeholder="Nota..."></textarea>
+    <button class="btn-blue" onclick="saveStatus()">SIMPAN</button>
+</div>
 
-    <nav class="tab-bar">
-        <a href="#" class="tab active-tab" onclick="nav(1,'JADUAL TUGAS',this)"><span>📅</span><br>Jadual</a>
-        <a href="#" class="tab" onclick="nav(2,'INFO NEGARA',this)"><span>🌍</span><br>Negara</a>
-    </nav>
+<script>
+// CONFIG FIREBASE (Sila masukkan API Key anda)
+const firebaseConfig = {
+    apiKey: "AIzaSy...",
+    authDomain: "projek-anda.firebaseapp.com",
+    databaseURL: "https://projek-anda-default-rtdb.firebaseio.com",
+    projectId: "projek-anda",
+    storageBucket: "projek-anda.appspot.com",
+    messagingSenderId: "123456789",
+    appId: "1:123456789:web:abcdef"
+};
 
- <script>
-    // 1. Fungsi Navigasi Tab
-    function nav(n, t, el) {
-        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-        document.getElementById('p' + n).classList.add('active');
-        document.querySelectorAll('.tab').forEach(b => b.classList.remove('active-tab'));
-        el.classList.add('active-tab');
-        document.getElementById('title').innerText = t;
-        if (n === 2) render(COUNTRIES);
-    }
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+let currentCell = null;
 
-    // 2. Fungsi Tukar Kod ke Bendera (INI YANG PENTING)
-    function getFlag(c) {
-        return c.toUpperCase().replace(/./g, char => 
-            String.fromCodePoint(char.charCodeAt(0) + 127397)
-        );
-    }
+function checkLogin() {
+    if(document.getElementById('username').value === "admin" && document.getElementById('password').value === "btmr2026") {
+        document.getElementById('loginSection').style.display = 'none';
+        document.getElementById('mainApp').style.display = 'block';
+        init();
+    } else { alert("Akses Ditolak!"); }
+}
 
-    // 3. Fungsi Papar Senarai Negara
-    function render(l) {
-        const container = document.getElementById('list');
-        if (l.length === 0) {
-            container.innerHTML = '<p style="text-align:center; opacity:0.5;">Tiada padanan.</p>';
-            return;
-        }
-        // Susun A-Z dan papar
-        container.innerHTML = l.sort((a, b) => a.n.localeCompare(b.n)).map(i => `
-            <div class="card" style="display:flex; align-items:center; padding:15px; margin-bottom:10px;">
-                <div style="font-size:30px; margin-right:15px;">${getFlag(i.c)}</div>
-                <div style="flex:1">
-                    <div style="font-weight:bold; font-size:16px;">${i.n}</div>
-                    <div style="font-size:11px; color:#00D4FF;">${i.c} • Mula: ${i.d}</div>
-                </div>
-                <div style="font-size:9px; background:rgba(255,255,255,0.1); padding:4px 8px; border-radius:8px;">${i.g}</div>
-            </div>
-        `).join('');
-    }
-
-    // 4. Fungsi Carian
-    function search() {
-        let v = document.getElementById('src').value.toLowerCase();
-        const hasil = COUNTRIES.filter(i => 
-            i.n.toLowerCase().includes(v) || i.c.toLowerCase().includes(v)
-        );
-        render(hasil);
-    }
-
-    // Papar data secara automatik apabila mula
-    window.onload = () => { render(COUNTRIES); };
-    let isLoginMode = true;
-
-    function toggleAuthMode() {
-        isLoginMode = !isLoginMode;
-        const nameField = document.getElementById('nameField');
-        const authTitle = document.getElementById('authTitle');
-        const mainBtn = document.getElementById('mainBtn');
-        const toggleLink = document.getElementById('toggleLink');
-        const toggleText = document.getElementById('toggleText');
-
-        if (isLoginMode) {
-            authTitle.innerText = "Log Masuk Pegawai";
-            nameField.style.display = "none";
-            mainBtn.innerText = "LOG MASUK";
-            toggleText.innerText = "Tiada ID pegawai?";
-            toggleLink.innerText = "Daftar Sekarang";
-        } else {
-            authTitle.innerText = "Pendaftaran Pegawai";
-            nameField.style.display = "block";
-            mainBtn.innerText = "DAFTAR AKAUN";
-            toggleText.innerText = "Sudah ada ID?";
-            toggleLink.innerText = "Log Masuk";
-        }
-    }
-
-    function handleAuth() {
-        const id = document.getElementById('userID').value.trim();
-        const name = document.getElementById('userName').value.trim();
-
-        if (!id) return alert("Sila masukkan ID Pegawai");
-
-        if (isLoginMode) {
-            // Proses Login
-            const savedUser = localStorage.getItem('user_' + id);
-            if (savedUser) {
-                const userData = JSON.parse(savedUser);
-                loginSuccess(userData);
-            } else {
-                alert("ID tidak ditemui. Sila daftar dahulu.");
-            }
-        } else {
-            // Proses Daftar
-            if (!name) return alert("Sila masukkan nama penuh");
-            const userData = { id: id, name: name };
-            localStorage.setItem('user_' + id, JSON.stringify(userData));
-            alert("Pendaftaran berjaya! Sila Log Masuk.");
-            toggleAuthMode();
-        }
-    }
-
-    function loginSuccess(user) {
-        localStorage.setItem('currentUser', JSON.stringify(user));
-        document.getElementById('authForm').style.display = "none";
-        document.getElementById('userProfile').style.display = "block";
-        document.getElementById('displayNama').innerText = user.name;
-        document.getElementById('displayID').innerText = "ID: " + user.id;
-        if (navigator.vibrate) navigator.vibrate([50, 30, 50]);
-    }
-
-    function logout() {
-        localStorage.removeItem('currentUser');
-        location.reload();
-    }
-
-    // Semak sesi login sedia ada apabila aplikasi dibuka
-    window.addEventListener('load', () => {
-        const session = localStorage.getItem('currentUser');
-        if (session) {
-            loginSuccess(JSON.parse(session));
-        }
+function init() {
+    const mSelect = document.getElementById('monthSelect');
+    ["Januari","Februari","Mac","April","Mei","Jun","Julai","Ogos","September","Oktober","November","Disember"].forEach((m, i) => {
+        let opt = document.createElement('option'); opt.value = i; opt.text = m;
+        opt.selected = (i === new Date().getMonth()); mSelect.appendChild(opt);
     });
+    setInterval(() => { document.getElementById('clock').innerText = new Date().toLocaleString('ms-MY'); }, 1000);
+    loadStaff();
+    renderTable();
+}
+
+// FUNGSI DAFTAR PEGAWAI
+function addStaff() {
+    const name = document.getElementById('s_name').value;
+    const team = document.getElementById('s_team').value;
+    if(!name) return alert("Masukkan nama!");
+    db.ref('staff').push({ name, team });
+    document.getElementById('s_name').value = "";
+}
+
+function loadStaff() {
+    db.ref('staff').on('value', (snap) => {
+        const data = snap.val();
+        let html = "";
+        for(let id in data) {
+            html += `<div class="staff-card">
+                <span><b>${data[id].name}</b> (${data[id].team})</span>
+                <button class="btn-red" onclick="deleteStaff('${id}')" style="padding:2px 8px;">X</button>
+            </div>`;
+        }
+        document.getElementById('staffDisplay').innerHTML = html;
+    });
+}
+
+function deleteStaff(id) { db.ref('staff/' + id).remove(); }
+
+// FUNGSI JADUAL
+function getBaseShift(team, day) {
+    const cycle = (day + team.length) % 4;
+    const shifts = [
+        {c:'PAGI', col:'#27ae60'}, {c:'PTG', col:'#f39c12'}, 
+        {c:'MLM', col:'#2c3e50'}, {c:'OFF', col:'#95a5a6'}
+    ];
+    return shifts[cycle];
+}
+
+function renderTable() {
+    const month = parseInt(document.getElementById('monthSelect').value);
+    const days = new Date(2026, month + 1, 0).getDate();
+    const teams = ["PASUKAN A", "PASUKAN B", "PASUKAN C", "PASUKAN D"];
     
+    let html = `<table><tr><th>Tarikh</th>` + teams.map(t => `<th>${t}</th>`).join('') + `</tr>`;
+    for(let d=1; d<=days; d++) {
+        html += `<tr><td>${d}/${month+1}</td>`;
+        teams.forEach(t => {
+            const shift = getBaseShift(t, d);
+            const cellId = `cell_${t.replace(' ','_')}_${month}_${d}`;
+            html += `<td id="${cellId}" class="cell-shift" style="background:${shift.col}" onclick="openModal('${cellId}')">${shift.code}</td>`;
+        });
+        html += `</tr>`;
+    }
+    document.getElementById('calendarContainer').innerHTML = html + `</table>`;
+}
+
+function openModal(id) {
+    currentCell = id;
+    document.getElementById('overlay').style.display = 'block';
+    document.getElementById('statusModal').style.display = 'block';
+}
+
+function closeModal() {
+    document.getElementById('overlay').style.display = 'none';
+    document.getElementById('statusModal').style.display = 'none';
+}
+
+function saveStatus() {
+    const type = document.getElementById('statusType').value;
+    const note = document.getElementById('globalNote').value;
+    const el = document.getElementById(currentCell);
+    if(type !== "NORMAL") {
+        el.innerHTML = `<b>${type}</b><br><small>${note}</small>`;
+        el.style.background = "#d63031";
+    }
+    closeModal();
+}
 </script>
+</body>
+</html>
